@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — WEASLEYS' WIZARD WHEEZES</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__row">
+        <div class="site-header__left">
+          <a class="site-logo" href="index.html" aria-label="На главную">
+            <img src="assets/footer-logo.png" alt="WWW">
+          </a>
+          <nav class="site-nav" aria-label="Навигация">
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#reviews">Отзывы</a>
+            <a href="index.html#delivery">Доставка</a>
+            <a href="tracking.html">Отслеживание заказа</a>
+          </nav>
+        </div>
+        <a class="header-cart" href="cart.html" aria-label="Корзина">
+          <img src="assets/fi-rr-shopping-bag.png" alt="">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="inner-main">
+    <div class="container cart-layout">
+      <section>
+        <h1 class="cart-title">Корзина</h1>
+        <div class="cart-items" id="cartItems"></div>
+
+        <section class="delivery-form">
+          <h2 class="section-title">Адрес и способ доставки</h2>
+
+          <div class="delivery-field">
+            <div class="small-label">Дата доставки</div>
+            <div class="calendar" aria-label="Календарь доставки">
+              <div class="calendar-week">
+                <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+              </div>
+              <div class="calendar-days" id="calendarDays"></div>
+            </div>
+            <span class="field-error" id="dateError"></span>
+          </div>
+
+          <div class="delivery-field">
+            <div class="time-options" aria-label="Временной интервал">
+              <button class="time-btn" type="button" data-time="10:00–13:00">10:00–13:00</button>
+              <button class="time-btn" type="button" data-time="14:00–16:00">14:00–16:00</button>
+              <button class="time-btn" type="button" data-time="20:00–21:00">20:00–21:00</button>
+            </div>
+            <span class="field-error" id="timeError"></span>
+          </div>
+
+          <div class="delivery-field">
+            <div class="delivery-options" aria-label="Способ доставки">
+              <button class="delivery-option" type="button" data-delivery="Экспресс-доставка">
+                <img src="assets/машина.png" alt="">
+                <span>Экспресс-доставка</span>
+              </button>
+              <button class="delivery-option" type="button" data-delivery="Добби-почта">
+                <img src="assets/delivery-dobby.png.png" alt="">
+                <span>Добби-почта</span>
+              </button>
+              <button class="delivery-option" type="button" data-delivery="Самовывоз">
+                <img src="assets/пвз.png" alt="">
+                <span>Самовывоз</span>
+              </button>
+            </div>
+            <span class="field-error" id="deliveryError"></span>
+          </div>
+
+          <div class="cart-summary">
+            <div>Всего товаров: <strong id="cartCount">0</strong></div>
+            <div>Общая стоимость: <strong id="cartTotal">0</strong> сиклей</div>
+          </div>
+          <button class="btn order-btn is-disabled" id="orderBtn" type="button" aria-disabled="true">оформить заказ</button>
+          <p class="message" id="cartMessage"></p>
+        </section>
+      </section>
+
+      <section class="cart-right">
+        <div class="frame portrait portrait--draco-big">
+          <img class="frame__photo" src="assets/драко.jpg" alt="Драко">
+          <img class="frame__decor" src="assets/рама 1.png" alt="">
+        </div>
+
+        <div class="frame portrait portrait--rect">
+          <img class="frame__photo" src="assets/лорд и гарри.jpg" alt="Портрет">
+          <img class="frame__decor" src="assets/рама 2.png" alt="">
+        </div>
+
+        <div class="frame portrait portrait--small">
+          <img class="frame__photo" src="assets/драко подмигивает.jpg" alt="Драко">
+          <img class="frame__decor" src="assets/рама3.png" alt="">
+        </div>
+
+        <div class="frame portrait portrait--bellatrix">
+          <img class="frame__photo" src="assets/беллатриса.jpg" alt="Беллатриса">
+          <img class="frame__decor" src="assets/рама 1.png" alt="">
+        </div>
+
+        <div class="recipient-form">
+          <h2 class="section-title">Получатель</h2>
+          <form id="recipientForm" novalidate>
+            <div class="field">
+              <label for="contacts">Контакты</label>
+              <input class="input" id="contacts" name="contacts" type="text" maxlength="50" autocomplete="off">
+              <span class="field-error" id="contactsError"></span>
+            </div>
+            <div class="field">
+              <label for="firstName">Имя</label>
+              <input class="input" id="firstName" name="firstName" type="text" maxlength="30" autocomplete="off">
+              <span class="field-error" id="firstNameError"></span>
+            </div>
+            <div class="field">
+              <label for="lastName">Фамилия</label>
+              <input class="input" id="lastName" name="lastName" type="text" maxlength="40" autocomplete="off">
+              <span class="field-error" id="lastNameError"></span>
+            </div>
+            <div class="field">
+              <label for="address">Адрес</label>
+              <input class="input" id="address" name="address" type="text" maxlength="110" autocomplete="off">
+              <span class="field-error" id="addressError"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <img class="decor-steps steps-two" src="assets/шаги.jpg.png" alt="">
+  <script src="shop.js"></script>
+</body>
+</html>

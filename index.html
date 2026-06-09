@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WEASLEYS' WIZARD WHEEZES</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-body">
+  <section class="hero" id="top">
+    <div class="container">
+      <header class="home-header">
+        <a class="home-logo" href="#top">WWW</a>
+
+        <nav class="home-nav" aria-label="Главная навигация">
+          <a href="#catalog">Каталог</a>
+          <a href="#about">О нас</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#delivery">Доставка</a>
+          <a href="tracking.html">Отслеживание заказа</a>
+        </nav>
+
+        <div class="home-actions">
+          <a class="icon-btn" href="cart.html" aria-label="Корзина">
+            <img src="assets/fi-rr-shopping-bag.png" alt="">
+          </a>
+        </div>
+      </header>
+
+      <div class="hero__content">
+        <div class="hero__block">
+          <div class="title-wrap">
+            <img class="snitch" src="assets/snitch.png" alt="">
+            <h1 class="hero__title">WEASLEYS'<br>WIZARD WHEEZES</h1>
+          </div>
+          <p class="hero__subtitle">Всевозможные Волшебные Вредилки</p>
+          <a class="hero__cta" href="#catalog">в каталог</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <div class="container">
+      <h2 class="catalog__title">Мы только что наколдовали</h2>
+
+      <div class="catalog__grid">
+        <article class="product-card pos-dnevnik" style="--frame-w:360px;--frame-h:245px;--item-w:145px;--item-y:-6px;">
+          <a class="product-card__visual" href="product.html" aria-label="Открыть карточку товара Дневник Томика">
+            <img class="product-card__frame" src="assets/рама 2.png" alt="">
+            <img class="product-card__item" src="assets/Tom Riddle’s Diary.png" alt="Дневник Томика">
+          </a>
+          <div class="product-card__meta">
+            <a class="product-card__name" href="product.html">Дневник Томика</a>
+            <span class="product-card__price">7 сиклей</span>
+            <button class="product-card__buy js-add-to-cart" type="button" aria-label="Добавить Дневник Томика в корзину" data-id="diary" data-name="Дневник Томика" data-price="7" data-img="Tom Riddle’s Diary.png">
+              <img src="assets/fi-rr-shopping-bag.png" alt="">
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card pos-shlyapa" style="--frame-w:270px;--frame-h:390px;--item-w:160px;--item-y:-10px;">
+          <a class="product-card__visual" href="product.html" aria-label="Открыть карточку товара Шляпка">
+            <img class="product-card__frame" src="assets/рама3.png" alt="">
+            <img class="product-card__item" src="assets/Sorting Hat.png" alt="Шляпка">
+          </a>
+          <div class="product-card__meta">
+            <a class="product-card__name" href="product.html">Шляпка</a>
+            <span class="product-card__price">7 сиклей</span>
+            <button class="product-card__buy js-add-to-cart" type="button" aria-label="Добавить Шляпку в корзину" data-id="hat" data-name="Шляпка" data-price="7" data-img="Sorting Hat.png">
+              <img src="assets/fi-rr-shopping-bag.png" alt="">
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card pos-klyuch" style="--frame-w:270px;--frame-h:390px;--item-w:175px;--item-y:-8px;">
+          <a class="product-card__visual" href="product.html" aria-label="Открыть карточку товара Ключик">
+            <img class="product-card__frame" src="assets/рама3.png" alt="">
+            <img class="product-card__item" src="assets/Flying key.png" alt="Ключик">
+          </a>
+          <div class="product-card__meta">
+            <a class="product-card__name" href="product.html">Ключик</a>
+            <span class="product-card__price">7 сиклей</span>
+            <button class="product-card__buy js-add-to-cart" type="button" aria-label="Добавить Ключик в корзину" data-id="key" data-name="Ключик" data-price="7" data-img="Flying key.png">
+              <img src="assets/fi-rr-shopping-bag.png" alt="">
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card pos-zele" style="--frame-w:390px;--frame-h:390px;--item-w:150px;--item-y:-8px;">
+          <a class="product-card__visual" href="product.html" aria-label="Открыть карточку товара Амортенция">
+            <img class="product-card__frame" src="assets/рама 1.png" alt="">
+            <img class="product-card__item" src="assets/Love potion.png" alt="Любовное зелье">
+          </a>
+          <div class="product-card__meta">
+            <a class="product-card__name" href="product.html">Для неё</a>
+            <span class="product-card__price">7 сиклей</span>
+            <button class="product-card__buy js-add-to-cart" type="button" aria-label="Добавить Любовное зелье в корзину" data-id="potion" data-name="Любовное зелье Амортенция" data-price="7" data-img="Love potion.png">
+              <img src="assets/fi-rr-shopping-bag.png" alt="">
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__item">
+          <img class="about__img" src="assets/fred-george.png" alt="Фред и Джордж">
+          <div class="about__text">
+            <h2 class="about__title">ТОРЖЕСТВЕННО КЛЯНЕМСЯ,<br>ЧТО ЗАМЫШЛЯЕМ ТОЛЬКО ШАЛОСТЬ...</h2>
+            <p>Мы, близнецы Фред и Джордж Уизли — основатели магазина Всевозможных Волшебных Вредилок.</p>
+            <p>Здесь можно найти самые забавные и удивительные магические товары для волшебников.</p>
+          </div>
+        </div>
+
+        <div class="about__item about__item--reverse">
+          <div class="about__text">
+            <h2 class="about__title">ТОРЖЕСТВЕННО КЛЯНЕМСЯ,<br>ЧТО ЗАМЫШЛЯЕМ ТОЛЬКО ШАЛОСТЬ...</h2>
+            <p>Каждая вещь в нашем магазине проверена лично нами и гарантированно принесёт море веселья.</p>
+            <p class="about__end">И ТОЛЬКО ШАЛОСТЬ!</p>
+          </div>
+          <img class="about__img" src="assets/fred-george.png" alt="Фред и Джордж">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews__grid">
+        <div class="reviews__text">
+          <h2 class="reviews__title">ТОРЖЕСТВЕННО КЛЯНЕМСЯ,<br>ЧТО ЗАМЫШЛЯЕМ ТОЛЬКО ШАЛОСТЬ...</h2>
+          <p>Должен признать, что продукция близнецов Уизли оказалась неожиданно качественной. Их волшебные изобретения работают безупречно.</p>
+          <p>Хотя я не одобряю чрезмерную любовь к шалостям, некоторые их товары обладают действительно впечатляющим магическим исполнением.</p>
+          <p class="reviews__author">— Северус Снейп</p>
+        </div>
+        <div class="reviews__card">
+          <img src="assets/snape-card.png" alt="Северус Снейп">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="delivery" id="delivery">
+    <div class="container">
+      <div class="delivery__grid">
+        <div class="delivery__text">
+          <h2 class="delivery__title">Хотите уже оформить заказ,<br>но нет времени ждать сову?</h2>
+          <p class="delivery__subtitle">Не проблема, у нас есть и другие способы доставки</p>
+          <div class="delivery__methods">
+            <div class="delivery__item">
+              <img src="assets/машина.png" alt="">
+              <p>Экспресс-доставка<br>От 4 часов</p>
+            </div>
+            <div class="delivery__item">
+              <img src="assets/delivery-dobby.png.png" alt="">
+              <p>Добби-почта<br>От 2 дней</p>
+            </div>
+            <div class="delivery__item">
+              <img src="assets/пвз.png" alt="">
+              <p>Самовывоз<br>От 2 часов</p>
+            </div>
+          </div>
+        </div>
+        <div class="delivery__image">
+          <img src="assets/сова (2).png" alt="Сова">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__left">
+          <img class="footer__logo" src="assets/footer-logo.png" alt="WWW">
+          <nav class="footer__nav">
+            <a href="#catalog">Каталог</a>
+            <a href="#about">О нас</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#delivery">Доставка</a>
+            <a href="tracking.html">Отслеживание заказа</a>
+          </nav>
+          <p class="footer__license">Лицензия от Министерства Магии на производство и продажу магических товаров</p>
+        </div>
+        <div class="footer__right">
+          <p class="footer__address">Адрес нашего магазина:<br>Магический Лондон, Косой переулок 67</p>
+          <div class="footer__map">
+            <img src="assets/footer-map.png" alt="Карта">
+            <img class="footer__snitch" src="assets/snitch.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shop.js"></script>
+</body>
+</html>

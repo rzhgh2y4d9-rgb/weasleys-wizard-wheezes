@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Карточка товара — WEASLEYS' WIZARD WHEEZES</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__row">
+        <div class="site-header__left">
+          <a class="site-logo" href="index.html" aria-label="На главную">
+            <img src="assets/footer-logo.png" alt="WWW">
+          </a>
+          <nav class="site-nav" aria-label="Навигация">
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#reviews">Отзывы</a>
+            <a href="index.html#delivery">Доставка</a>
+            <a href="tracking.html">Отслеживание заказа</a>
+          </nav>
+        </div>
+        <a class="header-cart" href="cart.html" aria-label="Корзина">
+          <img src="assets/fi-rr-shopping-bag.png" alt="">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="inner-main">
+    <div class="container">
+      <h1 class="product-page-title">ЛЮБОВНОЕ ЗЕЛЬЕ АМОРТЕНЦИЯ, ПРИДАЮЩЕЕ РОМАНТИЧЕСКИЙ НАСТРОЙ</h1>
+
+      <section class="product-layout">
+        <div class="product-left">
+          <div class="frame product-main-frame">
+            <img class="frame__item" src="assets/Love potion.png" alt="Любовное зелье">
+            <img class="frame__decor" src="assets/рама 1.png" alt="">
+          </div>
+          <div class="product-price">7 сиклей</div>
+          <button class="btn product-add js-product-add" type="button">В корзину</button>
+        </div>
+
+        <div class="product-info">
+          <div class="product-code">Артикул: WWW-POTION-01</div>
+          <h2 class="product-name">Амортенция</h2>
+          <div class="product-rating">★★★★★ 4.9</div>
+          <p>Самое сильное любовное зелье в мире магии. Имеет перламутровый блеск и аромат, который каждый чувствует по-своему.</p>
+          <p>Подходит для праздничного настроения, романтических шалостей и эффектной демонстрации магических возможностей.</p>
+
+          <div class="product-options">
+            <div class="option-title">Объём</div>
+            <div class="option-buttons">
+              <button class="option-btn active" type="button">50 мл</button>
+              <button class="option-btn" type="button">100 мл</button>
+            </div>
+          </div>
+
+          <div class="product-options">
+            <div class="option-title">Цвет</div>
+            <div class="option-buttons">
+              <button class="option-btn color-choice color-pink active" type="button" aria-label="Розовый"></button>
+              <button class="option-btn color-choice color-light-pink" type="button" aria-label="Светло-розовый"></button>
+              <button class="option-btn color-choice color-yellow" type="button" aria-label="Жёлтый"></button>
+              <button class="option-btn color-choice color-red" type="button" aria-label="Красный"></button>
+            </div>
+          </div>
+
+          <div class="product-details">
+            <span>Состав: лунная роса, лепестки розы, искра смущения.</span>
+            <span>Срок годности: 12 месяцев.</span>
+            <span>Предупреждение: использовать только для шалости.</span>
+          </div>
+        </div>
+
+        <div class="product-hero-img">
+          <div class="product-red-note">не пить без инструкции!</div>
+          <img src="assets/гермиона варит зелье.jpg.png" alt="Гермиона варит зелье">
+        </div>
+      </section>
+
+      <section class="reviews-block">
+        <div class="reviews-heading">
+          <img class="screamer" src="assets/кричалка.jpg.png" alt="">
+          <h2>Ваши Кричалки</h2>
+          <img class="screamer" src="assets/кричалка.jpg.png" alt="">
+        </div>
+
+        <div class="review-cards">
+          <article class="review-card">
+            <img class="review-owl" src="assets/сова (2).png" alt="">
+            <strong>Гермиона</strong>
+            <p>Зелье выглядит эффектно, но я всё равно советую читать инструкцию. Упаковка красивая, доставка пришла вовремя.</p>
+          </article>
+          <article class="review-card">
+            <strong>Драко</strong>
+            <p>Не признаюсь, что мне понравилось. Но качество достойное, флакон смотрится дорого.</p>
+          </article>
+          <article class="review-card">
+            <strong>Беллатриса</strong>
+            <p>Слишком мило, но магическая сила чувствуется. Для шалостей подходит.</p>
+            <img class="review-owl review-owl--right" src="assets/сова (2).png" alt="">
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <img class="decor-steps steps-one" src="assets/шаги.jpg.png" alt="">
+  <script src="shop.js"></script>
+</body>
+</html>

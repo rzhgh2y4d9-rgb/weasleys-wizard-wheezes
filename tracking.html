@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Отслеживание заказа — WEASLEYS' WIZARD WHEEZES</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__row">
+        <div class="site-header__left">
+          <a class="site-logo" href="index.html" aria-label="На главную">
+            <img src="assets/footer-logo.png" alt="WWW">
+          </a>
+          <nav class="site-nav" aria-label="Навигация">
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#reviews">Отзывы</a>
+            <a href="index.html#delivery">Доставка</a>
+            <a href="tracking.html">Отслеживание заказа</a>
+          </nav>
+        </div>
+        <a class="header-cart" href="cart.html" aria-label="Корзина">
+          <img src="assets/fi-rr-shopping-bag.png" alt="">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="inner-main">
+    <div class="container tracking-layout">
+      <section class="tracking-form">
+        <h1 class="section-title">Получатель</h1>
+        <form id="trackingForm" novalidate>
+          <div class="field">
+            <label for="trackContacts">Контакты</label>
+            <input class="input" id="trackContacts" type="text" maxlength="50" autocomplete="off">
+            <span class="field-error" id="trackContactsError"></span>
+          </div>
+          <div class="field">
+            <label for="trackFirstName">Имя</label>
+            <input class="input" id="trackFirstName" type="text" maxlength="30" autocomplete="off">
+            <span class="field-error" id="trackFirstNameError"></span>
+          </div>
+          <div class="field">
+            <label for="trackLastName">Фамилия</label>
+            <input class="input" id="trackLastName" type="text" maxlength="40" autocomplete="off">
+            <span class="field-error" id="trackLastNameError"></span>
+          </div>
+          <button class="btn tracking-btn" type="submit">УЗНАТЬ</button>
+          <p class="message" id="trackingMessage"></p>
+        </form>
+        <p class="tracking-note">Введите данные получателя и увидите всю информацию о заказе.</p>
+      </section>
+
+      <section class="tracking-gallery" aria-label="Декоративные портреты">
+        <div class="frame track-portrait track-oval-1">
+          <img class="frame__photo" src="assets/драко 2.jpg" alt="">
+          <img class="frame__decor" src="assets/рама 1.png" alt="">
+        </div>
+        <div class="frame track-portrait track-rect-1">
+          <img class="frame__photo" src="assets/лорд и гарри.jpg" alt="">
+          <img class="frame__decor" src="assets/рама 2.png" alt="">
+        </div>
+        <div class="frame track-portrait track-rect-2">
+          <img class="frame__photo" src="assets/друзья и гарри.jpg" alt="">
+          <img class="frame__decor" src="assets/рама3.png" alt="">
+        </div>
+        <div class="frame track-portrait track-rect-3">
+          <img class="frame__photo" src="assets/драко подмигивает.jpg" alt="">
+          <img class="frame__decor" src="assets/рама 2.png" alt="">
+        </div>
+        <div class="frame track-portrait track-oval-2">
+          <img class="frame__photo" src="assets/драко кричит.jpg" alt="">
+          <img class="frame__decor" src="assets/рама 1.png" alt="">
+        </div>
+        <div class="frame track-portrait track-oval-3">
+          <img class="frame__photo" src="assets/беллатриса.jpg" alt="">
+          <img class="frame__decor" src="assets/рама 1.png" alt="">
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <img class="decor-steps steps-one" src="assets/шаги.jpg.png" alt="">
+  <script src="shop.js"></script>
+</body>
+</html>

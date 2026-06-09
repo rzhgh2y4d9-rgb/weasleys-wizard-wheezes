@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оплата — WEASLEYS' WIZARD WHEEZES</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__row">
+        <div class="site-header__left">
+          <a class="site-logo" href="index.html" aria-label="На главную">
+            <img src="assets/footer-logo.png" alt="WWW">
+          </a>
+          <nav class="site-nav" aria-label="Навигация">
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#reviews">Отзывы</a>
+            <a href="index.html#delivery">Доставка</a>
+            <a href="tracking.html">Отслеживание заказа</a>
+          </nav>
+        </div>
+        <a class="header-cart" href="cart.html" aria-label="Корзина">
+          <img src="assets/fi-rr-shopping-bag.png" alt="">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="inner-main">
+    <div class="container">
+      <section class="payment-content">
+        <div class="stepper" aria-label="Этапы оплаты">
+          <div class="step active"><div class="step-circle">1</div><span>Корзина</span></div>
+          <div class="step active"><div class="step-circle">2</div><span>Оплата</span></div>
+          <div class="step"><div class="step-circle">3</div><span>Результат</span></div>
+        </div>
+
+        <div class="payment-methods" aria-label="Платёжная система">
+          <button class="payment-method active" type="button" data-payment="Mastercard">
+            <span class="payment-card-logo"><span class="mastercard-circles"></span></span>
+            <span>Mastercard</span>
+          </button>
+          <button class="payment-method" type="button" data-payment="Visa">
+            <span class="payment-card-logo visa">VISA</span>
+            <span>Visa</span>
+          </button>
+          <button class="payment-method" type="button" data-payment="Мир">
+            <span class="payment-card-logo mir">МИР</span>
+            <span>Мир</span>
+          </button>
+        </div>
+
+        <form class="payment-form" id="paymentForm">
+          <div class="payment-row">
+            <div class="field">
+              <label for="cardNumber">Card number</label>
+              <input class="input" id="cardNumber" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="field">
+              <label for="cardholder">Cardholder</label>
+              <input class="input" id="cardholder" type="text" placeholder="WEASLEY WIZARD">
+            </div>
+          </div>
+          <div class="payment-row">
+            <div class="payment-inline">
+              <div class="field">
+                <label for="expiry">Expiry date</label>
+                <input class="input" id="expiry" type="text" placeholder="MM/YY">
+              </div>
+              <div class="field">
+                <label for="cvv">CVV</label>
+                <input class="input" id="cvv" type="password" maxlength="3" placeholder="***">
+              </div>
+            </div>
+            <label class="field">
+              <span>Save my card</span>
+              <input type="checkbox" id="saveCard">
+            </label>
+          </div>
+
+          <div class="payment-total">
+            <span>Total</span>
+            <span class="payment-total-line"></span>
+            <strong><span id="paymentTotal">0</span> сиклей</strong>
+          </div>
+          <button class="btn confirm-btn" type="submit">CONFIRM PAYMENT</button>
+          <p class="message" id="paymentMessage"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <img class="decor-steps steps-three" src="assets/шаги.jpg.png" alt="">
+  <script src="shop.js"></script>
+</body>
+</html>
