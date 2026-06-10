@@ -1,0 +1,33 @@
+name: Build MSI installer
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-msi:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install WiX Toolset
+        shell: powershell
+        run: |
+          choco install wixtoolset -y --no-progress
+          $wixBin = Get-ChildItem "${env:ProgramFiles(x86)}" -Recurse -Filter "heat.exe" -ErrorAction SilentlyContinue |
+            Select-Object -First 1 -ExpandProperty DirectoryName
+          if (-not $wixBin) { throw "WiX Toolset was not found after installation" }
+          echo "$wixBin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Build MSI
+        shell: powershell
+        run: .\build-msi.ps1
+
+      - name: Upload MSI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WEASLEYS_WIZARD_WHEEZES_Setup
+          path: dist\WEASLEYS_WIZARD_WHEEZES_Setup.msi
