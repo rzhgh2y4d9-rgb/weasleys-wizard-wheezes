@@ -1,66 +1,38 @@
-name: Build MSI installer
+name: Build MSI
 
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    paths:
+      - "index.html"
+      - "product.html"
+      - "cart.html"
+      - "payment.html"
+      - "tracking.html"
+      - "style.css"
+      - "shop.js"
+      - "assets/**"
+      - "installer/**"
+      - ".github/workflows/build-msi.yml"
 
 jobs:
   build-msi:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Prepare WiX Toolset
-        shell: powershell
-        run: |
-          $ErrorActionPreference = "Stop"
-
-          $possibleWixDirs = @(
-            "${env:ProgramFiles(x86)}\WiX Toolset v3.14\bin",
-            "${env:ProgramFiles(x86)}\WiX Toolset v3.11\bin",
-            "${env:ProgramFiles}\WiX Toolset v3.14\bin",
-            "${env:ProgramFiles}\WiX Toolset v3.11\bin"
-          )
-
-          $wixBin = $null
-
-          foreach ($dir in $possibleWixDirs) {
-            if (Test-Path (Join-Path $dir "candle.exe")) {
-              $wixBin = $dir
-              break
-            }
-          }
-
-          if (-not $wixBin) {
-            choco install wixtoolset -y --no-progress
-
-            foreach ($dir in $possibleWixDirs) {
-              if (Test-Path (Join-Path $dir "candle.exe")) {
-                $wixBin = $dir
-                break
-              }
-            }
-          }
-
-          if (-not $wixBin) {
-            throw "WiX Toolset was not found"
-          }
-
-          echo "$wixBin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-          Write-Host "WiX Toolset path: $wixBin"
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
 
       - name: Build MSI
-        shell: powershell
-        run: |
-          powershell -ExecutionPolicy Bypass -File ".\build-msi.ps1"
+        run: dotnet build installer/WeasleysInstaller.wixproj -c Release -p:Platform=x64
 
       - name: Upload MSI artifact
         uses: actions/upload-artifact@v4
         with:
-          name: WEASLEYS_WIZARD_WHEEZES_Setup
-          path: dist/WEASLEYS_WIZARD_WHEEZES_Setup.msi
-          if-no-files-found: error
+          name: WEASLEYS-WIZARD-WHEEZES-Setup
+          path: installer/bin/**/*.msi
