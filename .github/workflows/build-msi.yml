@@ -3,17 +3,11 @@ name: Build MSI
 on:
   workflow_dispatch:
   push:
-    paths:
-      - "index.html"
-      - "product.html"
-      - "cart.html"
-      - "payment.html"
-      - "tracking.html"
-      - "style.css"
-      - "shop.js"
-      - "assets/**"
-      - "installer/**"
-      - ".github/workflows/build-msi.yml"
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
   build-msi:
@@ -21,18 +15,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Setup .NET SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "8.0.x"
+          dotnet-version: 8.0.x
 
-      - name: Build MSI
-        run: dotnet build installer/WeasleysInstaller.wixproj -c Release -p:Platform=x64
+      - name: Build MSI installer
+        shell: pwsh
+        run: ./build-msi.ps1
 
       - name: Upload MSI artifact
         uses: actions/upload-artifact@v4
         with:
-          name: WEASLEYS-WIZARD-WHEEZES-Setup
-          path: installer/bin/**/*.msi
+          name: WeasleysWizardWheezes-Setup
+          path: dist/WeasleysWizardWheezes-Setup.msi
