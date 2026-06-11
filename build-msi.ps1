@@ -3,6 +3,7 @@ $ErrorActionPreference = "Stop"
 $AppName = "Weasleys Wizard Wheezes"
 $Manufacturer = "Weasleys Wizard Wheezes"
 $Version = "1.0.0"
+
 $UpgradeCode = "B17E3D1D-B1B4-47D1-8E4C-0F83B661C5F8"
 $ShortcutComponentGuid = "7A7C5C2B-62A1-4D12-A343-0D8C7F83C6C2"
 
@@ -10,11 +11,14 @@ $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Build = Join-Path $Root "build"
 $Stage = Join-Path $Build "app"
 $Dist = Join-Path $Root "dist"
+
 $WxsPath = Join-Path $Build "Product.wxs"
 $MsiPath = Join-Path $Dist "WeasleysWizardWheezes-Setup.msi"
 
 Remove-Item $Build, $Dist -Recurse -Force -ErrorAction SilentlyContinue
-New-Item -ItemType Directory -Path $Stage, $Dist | Out-Null
+
+New-Item -ItemType Directory -Path $Stage -Force | Out-Null
+New-Item -ItemType Directory -Path $Dist -Force | Out-Null
 
 $ItemsToPackage = @(
     "index.html",
@@ -48,10 +52,14 @@ foreach ($item in $ItemsToPackage) {
 $IndexPath = Join-Path $Stage "index.html"
 
 if (-not (Test-Path $IndexPath)) {
-    throw "Файл index.html не найден. Без него инсталлятор сайта собирать нельзя."
+    throw "Файл index.html не найден. Без него инсталлятор сайта собрать нельзя."
 }
 
-dotnet tool update --global wix
+dotnet tool update --global wix --version 5.0.2
+
+if ($LASTEXITCODE -ne 0) {
+    throw "Не удалось установить WiX Toolset."
+}
 
 $DotnetToolsPath = Join-Path $env:USERPROFILE ".dotnet\tools"
 
@@ -60,12 +68,14 @@ if ($env:PATH -notlike "*$DotnetToolsPath*") {
 }
 
 function Escape-Xml {
-    param([string]$Text)
+    param(
+        [string]$Text
+    )
+
     return [System.Security.SecurityElement]::Escape($Text)
 }
 
 $StageItem = Get-Item $Stage
-
 $AllDirs = @($StageItem) + @(Get-ChildItem $Stage -Directory -Recurse | Sort-Object FullName)
 
 $DirIds = @{}
@@ -82,6 +92,7 @@ foreach ($dir in $AllDirs) {
     $DirNumber++
 }
 
+$script:DirIds = $DirIds
 $script:DirectoryXml = ""
 
 function Add-DirectoryXml {
@@ -121,7 +132,6 @@ foreach ($file in $Files) {
     $ComponentsXml += "    <Component Id=`"$componentId`" Directory=`"$dirId`" Guid=`"*`">`r`n"
     $ComponentsXml += "      <File Id=`"$fileId`" Source=`"$source`" KeyPath=`"yes`" />`r`n"
     $ComponentsXml += "    </Component>`r`n"
-
     $ComponentRefsXml += "      <ComponentRef Id=`"$componentId`" />`r`n"
 
     $FileNumber++
@@ -184,6 +194,14 @@ $ComponentRefsXml
 Set-Content -Path $WxsPath -Value $Wxs -Encoding UTF8
 
 wix build $WxsPath -arch x64 -out $MsiPath
+
+if ($LASTEXITCODE -ne 0) {
+    throw "WiX build failed with exit code $LASTEXITCODE"
+}
+
+if (-not (Test-Path $MsiPath)) {
+    throw "MSI-файл не был создан."
+}
 
 Write-Host ""
 Write-Host "Готово:"
